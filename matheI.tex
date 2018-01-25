@@ -72,6 +72,9 @@
 \usepackage{longtable}
 \usepackage{xcolor}
 
+%durchstreichen
+\usepackage{cancel}
+
 \usepackage{fancybox}
 
 %andere Aufzählungen bei Enumerate
@@ -1923,8 +1926,9 @@
 							Falls $v_i \in \langle \{ v_1, \dots, v_i-1 \} \cap B \rangle$, dann $v_i \notin B$, andernfalls $v_i \in B$.
 					\end{enumerate}
 				
-			\subsubsection{Satz 7.10}
+			\subsubsection{Satz 7.10}\label{Satz7.10}
 				Sei $(V,\circleplus,\circlecdot)$ ein endlich erzeugter VR. Dann haben je zwei Basen die gleiche Anzahl an Elementen.
+				\paragraph{Beweis} siehe \ref{Beweis7.10}, Seite \pageref{Beweis7.10}
 				
 			\subsubsection{Definition 7.11}
 				Sei $(V, \circleplus, \circlecdot)$ endlich erzeugter VR. Dann heißt $V$ \emph{$n$-dimensional}\subkeywordNoprint{n-dimensional@$n$-dimensional}{Vektorräume}, $n\inN_0$, falls es ein Basis mit $n$ Elementen gibt. $n$ heißt die \subkeyword{Dimension}{Vektorräume} von $V$.
@@ -1980,11 +1984,15 @@
 				
 					
 			
-	\iffalse
+	%\iffalse
 	\appendix
 		
 	\chapter{Beweise}
-			
+		
+		\iffalse
+		
+		\section{zu Kapitel 2 Relationen \& Funktionen}
+		
 			\subsubsection{Beweis zu Satz 2.11}\label{Beweis2.11}
 			
 			\shadowbox{
@@ -1998,7 +2006,73 @@
 				\end{minipage}
 			}
 			%TODO Beweis aufschreiben
+		\fi	
 			
-	\fi
+		\section{zu Kapitel 8 Lineare Algebra II: Lineare Abbildungen}
+		
+			\subsubsection{Beweis Satz 7.10}\label{Beweis7.10}
+			
+			\shadowbox{
+				\begin{minipage}[h]{\linewidth}
+					\textbf{Satz 7.10} (\ref{Satz7.10}, Seite \pageref{Satz7.10})\\
+					Sei $(V,\circleplus,\circlecdot)$ ein endlich erzeugter VR. Dann haben je zwei Basen die gleiche Anzahl an Elementen.
+				\end{minipage}
+			}
+			Idee des Beweises: ``Basisaustausch''.
+			\paragraph{Beispiel}
+				$\mathbb{R}^2$ als $\mathbb{R}$-VR, $B = \{(1,0),(0,1)\}$ Basis.\\
+				Betrachte $A = \{(1,1),(5,3),(3,5)\}$. Beobachtung: $A \nsubseteq \langle \{(1,0) \} \rangle$\\
+				Wir haben z.~B.
+				\begin{align}
+					&\underbrace{(1,1)}_{\in A} = (1,0) \circleplus (0,1)\\
+					\implies& (0,1) = (1,1) \circleplus [(-1) \circlecdot (0,1)]\\
+					\implies& \{(1,1),(0,1)\} \text{ ist Erzeugendensystem von } \mathbb{R}^2
+				\end{align}
+				Nächster Schritt: Es gilt
+				\begin{align}
+					&(5,3) = (5 \circlecdot (1,1)) \circleplus ((-2) \circlecdot (0,1)) \implies (0,1) \in \langle \{(5,3),(1,1)\} \rangle\\
+					\implies & \{(5,3),(1,1)\} \text{ ist Erzeugendensystem von } \mathbb{R}^2\\
+					\implies & (3,5) \in \langle \{ (5,3), (1,1) \} \implies A \text{ ist linear abhängig}
+				\end{align}
+				
+			\paragraph{Beweis} des Satzes: Wir zeigen: Falls $\{b_1,\dots,b_n\}, n \inN_0$ ein Erzeugendensystem von $V$ ist und $A = \{ a_1, \dots a_{n+1}\}, |A| = n+1$, dann ist $A$ linear abhängig, also insbesondere keine Basis.\\
+			Vollständige Induktion nach $n$:
+			\pagebreak[3]
+			\begin{itemize}\nopagebreak[4]
+				\item[I.~A.:] \nopagebreak[4]$n=0$\nopagebreak[4]\\ \nopagebreak[4]
+					\nopagebreak[4]\begin{align}
+						V = \langle \emptyset \rangle = \{\boldzero\} & \implies A = \{\boldzero\} \text{ (einzige Teilmenge von } V \text{ mit einem Element)}\\
+						& \implies A \text{ linear abhängig}
+					\end{align}
+				\item[I.~V.:] Falls $\tilde{V} \subseteq V$ von $k$ Vektoren aus $V$ erzeugt wird mit $k \leq n \inN_0$ beliebig, aber fest, dann ist je $(k+1)$ Vektoren aus $\tilde{V}$ linear abhängig.
+				\item[I.~S.:] Sei $\tilde{V} = \langle \{ b_1, \dots, b_{n+1} \} \rangle, A = \{ a_1, \dots, a_{n+2} \}, |A| = n+2$
+			\end{itemize}
+		Angenommen $A$ ist linear unabhängig.\\
+		Zwei Möglichkeiten:
+		\begin{enumerate}
+			\item $\underbrace{A}_\text{2 Vektoren} \subseteq \lbrace \{ b_2, \dots, b_{n+1} \} \rbrace \implies$ nach I.~V. ist $A$ linear unabhängig. \lightning
+			\item Es gibt ein $a \in A$, o.~E.\footnote{ohne Einschränkung} $a_1$ (umnummerieren möglich), so dass
+			\begin{align}
+				a_1 \in \langle \{b_2, \dots, b_{n+1}\} \rangle
+			\end{align}
+			$\implies$ Jede Linearkombination $a_1 =  \lincombine{s}{b}{1}{n+1}, s_i \in K$ erfüllt $s_1 \neq 0$
+			\begin{align}
+				&\implies b_1 = s_1^{-1} \cdot a_1 - s_1^{-1} \cdot [\lincombine{s}{b}{2}{n+1}]
+				&\implies \{a_1, b_2, \dots, b_{n+1}\} \text{ ist Erzeugendensystem von } V
+			\end{align}
+			Falls $\underbrace{\{a_2, \dots, a_{n+1}\}}_{n+1\text{ Vektoren}} \subseteq \langle \underbrace{\{\cancel{a_1}, b_3, \dots b_{n+1}\}}_{\cancelto{n-1}{n} \text{ Vektoren}}$, dann sind $a_2, \dots a_{n+2}$ linear abhängig. \lightning\\
+			Ähnlich wie oben: o.~E.
+			\begin{align}
+				\{a_1, a_2, b_3, \dots, b_{n+1}\} \text{ Erzeugendensystem}
+			\end{align}
+			Rest: Übungsblatt
+		\end{enumerate}
+		
+		
+		
+		
+		
+			
+	%\fi
 	\printindex
 \end{document}

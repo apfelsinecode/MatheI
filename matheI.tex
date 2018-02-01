@@ -38,6 +38,8 @@
 \DeclareMathOperator{\romanspan}{span}
 %Kern/kernel (lineare Abbildungen)
 \DeclareMathOperator{\Kern}{Kern}
+%Bild (lineare Abbildungen)
+\DeclareMathOperator{\Bild}{Bild}
 
 \newcommand{\inN}{\in\mathbb{N}}
 \newcommand{\inZ}{\in\mathbb{Z}}
@@ -1935,6 +1937,8 @@
 				
 	\chapter{Lineare Algebra II: Lineare Abbildungen}
 	
+	\section{Grundlagen und Isomorphismen}
+	
 		\subsubsection{Definition 8.1}
 			\begin{enumerate}[a)]
 				\item Seinen $V, W$ $K$-VR. Eine Abbildung
@@ -1981,6 +1985,53 @@
 		
 		\subsubsection{Satz 8.5}
 			Seien $U,V$ $K$-VR mit $\dim U = \dim V \inN_0$. Dann sind $U$ und $V$ isomorph.
+			
+			
+			
+		\section{Kern und Bild, Dimensionsformel}
+	
+			\subsubsection{Definition 8.6}
+				Seien $U, V$ $K$-VR, $f : U \to V$ linear. Dann ist
+				\begin{align}
+					\ker(f)	&= \Kern(f) = \{u \in U: f(u) = \boldzero_V \}\\
+					\romanIm(f)	&= \Bild(f) = f(U)\\
+							& = \{v \in V: \text{ es gibt ein } u \in U \text{ mit } f(u) = v\}\\
+							&= \{f(u):u\in U\}
+				\end{align}\subkeywordNoprint{Kern $\ker$}{lineare Abbildungen}\index{ker}\index{Im}\subkeywordNoprint{lineare Abbildungen}{Bild}\subkeywordNoprint{Bild $\romanIm$}{lineare Abbildungen}
+				
+				\paragraph{Bemerkung} $\ker(f)$ ist UVR von $U$. $\romanIm(f)$ ist UVR von $V$.
+				
+			\subsubsection{Satz 8.7}
+				Seien $U, V$ $K$-VR, $f: U \to V$ linear.
+				\begin{enumerate}
+					\item Es gilt:
+						\begin{align}
+							f \text{ ist injektiv} \Longleftrightarrow \ker(f) = \{\boldzero_U\}
+						\end{align}
+					\item Es gilt (nach Definition von Surjektivität):
+						\begin{align}
+							f \text{ ist surjektiv} \Longleftrightarrow \romanIm(f) = V
+						\end{align}
+					\item Falls $U = \langle \{u_1, \dots, u_n\} \rangle$ endlich erzeugt ist, dann ist
+					\begin{align}
+						\romanIm(f) = \langle \{f(u_1), \dots, f(u_n) \} \rangle
+					\end{align}
+				\end{enumerate}
+			
+		\subsubsection{Lemma 8.8}
+			Sei $V$ ein endlich erzeugter $K$-VR, $V\neq \{\boldzero\}, B = \{b_1, \dots, b_n\} \subseteq V$. Folgende Aussagen sind äquivalent:
+			\begin{enumerate}
+				\item $B$ ist Basis von $V$.
+				\item $B$ ist ein linear unabhängiges Erzeugendensystem für $V$.
+				\item $B$ ist linear unabhängig und $|B| = \dim(V)$.
+				\item $B$ ist linear unabhängig und $B \cup \{v\}$ ist linear abhängig für alle $v \in V \backslash B$.
+				\item $B$ ist ein Erzeugendensystem für $V$, und $B \backslash \{b_i\}$ ist kein Erzeugendensystem für alle $b_i \in B$.
+				\item Jedes $v\in V$ ist eine eindeutige Darstellung der Form 
+				\begin{align}
+					v = \lincombine{s}{b}{1}{n} \text{ mit } s_1, \dots s_n \in K
+				\end{align}
+				\item Ist $A = \{a_1 \dots, a_k\} \subseteq V$ linear unabhängig, dann $k \leq n$, und es gibt $(n-k)$ Elemente in $B$ so dass $A$ und diese Elemente $b_{i_1}, \dots, b_{i_{n-k}}$ eine Basis von $V$ bilden.
+			\end{enumerate}
 				
 					
 			

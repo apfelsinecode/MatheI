@@ -2018,20 +2018,45 @@
 					\end{align}
 				\end{enumerate}
 			
-		\subsubsection{Lemma 8.8}
-			Sei $V$ ein endlich erzeugter $K$-VR, $V\neq \{\boldzero\}, B = \{b_1, \dots, b_n\} \subseteq V$. Folgende Aussagen sind äquivalent:
-			\begin{enumerate}
-				\item $B$ ist Basis von $V$.
-				\item $B$ ist ein linear unabhängiges Erzeugendensystem für $V$.
-				\item $B$ ist linear unabhängig und $|B| = \dim(V)$.
-				\item $B$ ist linear unabhängig und $B \cup \{v\}$ ist linear abhängig für alle $v \in V \backslash B$.
-				\item $B$ ist ein Erzeugendensystem für $V$, und $B \backslash \{b_i\}$ ist kein Erzeugendensystem für alle $b_i \in B$.
-				\item Jedes $v\in V$ ist eine eindeutige Darstellung der Form 
+			\subsubsection{Lemma 8.8}
+				Sei $V$ ein endlich erzeugter $K$-VR, $V\neq \{\boldzero\}, B = \{b_1, \dots, b_n\} \subseteq V$. Folgende Aussagen sind äquivalent:
+				\begin{enumerate}
+					\item $B$ ist Basis von $V$.
+					\item $B$ ist ein linear unabhängiges Erzeugendensystem für $V$.
+					\item $B$ ist linear unabhängig und $|B| = \dim(V)$.
+					\item $B$ ist linear unabhängig und $B \cup \{v\}$ ist linear abhängig für alle $v \in V \backslash B$.
+					\item $B$ ist ein Erzeugendensystem für $V$, und $B \backslash \{b_i\}$ ist kein Erzeugendensystem für alle $b_i \in B$.
+					\item Jedes $v\in V$ ist eine eindeutige Darstellung der Form 
+					\begin{align}
+						v = \lincombine{s}{b}{1}{n} \text{ mit } s_1, \dots s_n \in K
+					\end{align}
+					\item Ist $A = \{a_1 \dots, a_k\} \subseteq V$ linear unabhängig, dann $k \leq n$, und es gibt $(n-k)$ Elemente in $B$ so dass $A$ und diese Elemente $b_{i_1}, \dots, b_{i_{n-k}}$ eine Basis von $V$ bilden.
+				\end{enumerate}
+			
+			\subsubsection{Satz 8.9}
+				Seien $U,V$ $K$-VR, $\dim(U) = n \inN_0$. Sei $f: U \to V$ linear. Dann gilt
+					\begin{align}
+						\dim(U) = \dim(\ker(f)) + \dim(\romanIm(f))
+					\end{align}
+				
+			\subsubsection{Korollar 8.10}
+				Seien $U,V$ $K$-VR mit $\dim(U) = \dim(V) \inN_0, f: U \to V$ linear. Dann gilt
 				\begin{align}
-					v = \lincombine{s}{b}{1}{n} \text{ mit } s_1, \dots s_n \in K
+					f \text{ injektiv} \Longleftrightarrow f \text{ surjektiv} \Longleftrightarrow f \text{ bijektiv}
 				\end{align}
-				\item Ist $A = \{a_1 \dots, a_k\} \subseteq V$ linear unabhängig, dann $k \leq n$, und es gibt $(n-k)$ Elemente in $B$ so dass $A$ und diese Elemente $b_{i_1}, \dots, b_{i_{n-k}}$ eine Basis von $V$ bilden.
-			\end{enumerate}
+			
+		\section{Matrizen}
+			
+			\subsubsection{Idee}
+				$U,V$ $K$-VR, $f: U\to V$ linear, $U$ endlich erzeugt.\\
+				$f$ ist eindeutig bestimmt durch die Bilder einer Basis von $U$.\\
+				$B = \{b_1, \dots, b_n\}$ Basis von $U$\\
+				\begin{align}
+					\begin{bmatrix}
+						f(b_1)	& \cdots	& f(b_n)
+					\end{bmatrix}
+				\end{align}
+		
 				
 					
 			

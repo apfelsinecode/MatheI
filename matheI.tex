@@ -49,6 +49,7 @@
 \newcommand{\NtoR}{\mathbb{N}\rightarrow\mathbb{R}}
 \newcommand{\lincombine}[4]{(#1_{#3} \circlecdot #2_{#3}) \circleplus \dots \circleplus (#1_{#4} \circlecdot #2_{#4})}%Name of Scalar, Name of Vector, first index, last index
 \newcommand{\entspricht}{\text{\^{=}}}
+\newcommand{\matrixwithsubscript}[5]{(#1_{#2#3})_{\scriptsize\begin{array}{l}1 \leq #2 \leq #4 \\ 1\leq #3 \leq #5\end{array}}}
 
 \newcommand{\circleplus}{\oplus}%{{\textcircled+}}
 \newcommand{\circlecdot}{\otimes}%{{\textcircled.}} 
@@ -2091,7 +2092,7 @@
 				\end{align}
 				aus $m$ Zeilen und $n$ Spalten mit Einträgen $a_{ij} \in K, 1 \leq i \leq m, 1 \leq j \leq n$.\\
 				$i \in \{ 1, \dots, m \}$ ist Zeilenindex, $j \in \{1, \dots, n \}$ ist Spaltenindex.\\
-				Schreibweise: $(a_{ij})$ oder $(a_{ij})_{\scriptsize\begin{array}{c}1 \leq i \leq m \\ 1\leq j \leq n\end{array}}$\\
+				Schreibweise: $(a_{ij})$ oder $\matrixwithsubscript{a}{i}{j}{m}{n}$\\
 				Die Menge aller $(m \times n)$-Matrizen mit Einträgen aus $K$ bezeichnen wir mit $K^(m \times n)$.
 				
 				\paragraph{Bemerkung} Wir identifizieren $K^n \entspricht K^{n \times 1}$
@@ -2102,7 +2103,7 @@
 					&f(b_j) = (a_{1j} \circlecdot p_1) \circleplus \dots \circleplus (a_{mj} \circlecdot p_m)\\
 					&\text{ mit } a_{ij} \in K \text{ für alle } i \in \{1, \dots, m\}, j \in \{1, \dots, n\}
 				\end{align}
-				Dann heißt $(a_{ij})_{\scriptsize\begin{array}{l} 1 \leq i \leq m \\ 1 \leq j \leq n \end{array}}$ die \subkeyword{Darstellungsmatrix}{Matrizen} von $f$ bezüglich der Basen $B$ und $P$.
+				Dann heißt $\matrixwithsubscript{a}{i}{j}{m}{n}$ die \subkeyword{Darstellungsmatrix}{Matrizen} von $f$ bezüglich der Basen $B$ und $P$.
 				
 				\paragraph{Bemerkung} ``In der Darstellungsmatrix stehen in den Spalten die Basen der Basisvektoren.''
 				
@@ -2118,7 +2119,7 @@
 						Dann
 						\begin{align}
 							f\left( \begin{pmatrix}
-								0 \\ 1
+								1 \\ 0
 							\end{pmatrix}  \right) &= \begin{pmatrix}
 								1 \\ 0 \\ 1
 							\end{pmatrix} = 1 \circlecdot \begin{pmatrix}
@@ -2127,9 +2128,136 @@
 								0 \\ 1 \\ 0
 							\end{pmatrix} \circleplus 1 \circlecdot \begin{pmatrix}
 								0 \\ 0 \\ 1
-							\end{pmatrix}
+							\end{pmatrix}\\
+							f\left( \begin{pmatrix}
+							0 \\ 1
+							\end{pmatrix}  \right) &= \begin{pmatrix}
+							1 \\ -1 \\ -1
+							\end{pmatrix} = 1 \circlecdot \begin{pmatrix}
+							1 \\ 0 \\ 0
+							\end{pmatrix} \circleplus (-1) \circlecdot \begin{pmatrix}
+							0 \\ 1 \\ 0
+							\end{pmatrix} \circleplus (-1) \circlecdot \begin{pmatrix}
+							0 \\ 0 \\ 1
+							\end{pmatrix}\\
+							\rightarrow& \text{ Darstellungsmatrix }\begin{bmatrix}
+							1	& 1 \\
+							0	& -1 \\
+							1	& -1
+							\end{bmatrix} \in \mathbb{R}^{3 \times 2}
+						\end{align}
+						
+						\item Betrachte $B = \left\{ \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ -1 \end{pmatrix} \right\} \subset \mathbb{R}^2, P = \left\{ \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} \right\} \subset \mathbb{R}^3$\\
+						Es gilt
+						\begin{align}
+							f\left( \begin{pmatrix}
+							1 \\ 1
+							\end{pmatrix}  \right) &= \begin{pmatrix}
+							2 \\ -1 \\ 0
+							\end{pmatrix} = 2 \circlecdot \begin{pmatrix}
+							1 \\ 0 \\ 0
+							\end{pmatrix} \circleplus (-1) \circlecdot \begin{pmatrix}
+							0 \\ 1 \\ 0
+							\end{pmatrix} \circleplus 0 \circlecdot \begin{pmatrix}
+							0 \\ 0 \\ 1
+							\end{pmatrix}\\
+							f\left( \begin{pmatrix}
+							1 \\ -1
+							\end{pmatrix}  \right) &= \begin{pmatrix}
+							0 \\ 1 \\ 2
+							\end{pmatrix} = 0 \circlecdot \begin{pmatrix}
+							1 \\ 0 \\ 0
+							\end{pmatrix} \circleplus 1 \circlecdot \begin{pmatrix}
+							0 \\ 1 \\ 0
+							\end{pmatrix} \circleplus 2 \circlecdot \begin{pmatrix}
+							0 \\ 0 \\ 1
+							\end{pmatrix}\\
+							\rightarrow& \text{ Darstellungsmatrix }\begin{bmatrix}
+							2	& 0 \\
+							-1	& 1 \\
+							0	& 2
+							\end{bmatrix} \in \mathbb{R}^{3 \times 2}
+						\end{align}
+						
+						\item Betrachte $B = \left\{ \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \end{pmatrix} \right\} \subset \mathbb{R}^2, P = \left\{ \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \right\} \subset \mathbb{R}^3$\\
+						Es gilt
+						\begin{align}
+							f\left( \begin{pmatrix}
+							1 \\ 0
+							\end{pmatrix}  \right) &= \begin{pmatrix}
+							1 \\ 0 \\ 1
+							\end{pmatrix} = 1 \circlecdot \begin{pmatrix}
+							1 \\ 0 \\ 0
+							\end{pmatrix} \circleplus (-1) \circlecdot \begin{pmatrix}
+							1 \\ 1 \\ 0
+							\end{pmatrix} \circleplus 1 \circlecdot \begin{pmatrix}
+							1 \\ 1 \\ 1
+							\end{pmatrix}\\
+							f\left( \begin{pmatrix}
+							0 \\ 1
+							\end{pmatrix}  \right) &= \begin{pmatrix}
+							1 \\ -1 \\ -1
+							\end{pmatrix} = 2 \circlecdot \begin{pmatrix}
+							1 \\ 0 \\ 0
+							\end{pmatrix} \circleplus 0 \circlecdot \begin{pmatrix}
+							1 \\ 1 \\ 0
+							\end{pmatrix} \circleplus (-1) \circlecdot \begin{pmatrix}
+							1 \\ 1 \\ 1
+							\end{pmatrix}\\
+							\rightarrow& \text{ Darstellungsmatrix }\begin{bmatrix}
+							1	& 2 \\
+							-1	& 0 \\
+							0	& -1
+							\end{bmatrix} \in \mathbb{R}^{3 \times 2}
 						\end{align}
 					\end{itemize}
+				
+				\paragraph{Beobachtung}
+					Sei $f: K^n \to K^m$ linear mit Darstellungsmatrix $A = \matrixwithsubscript{a}{i}{j}{m}{n}$ bzgl. Standardbasen. Dann gilt für $x = \begin{pmatrix}
+						x_1 \\ \vdots \\ x_n
+					\end{pmatrix} \in K^n$
+					\begin{align}
+						f(x) &= f\left( x_1 \circlecdot \begin{pmatrix}
+							1 \\ 0 \\ \vdots \\ 0
+						\end{pmatrix} \circleplus \dots \circleplus x_n \circlecdot \begin{pmatrix}
+							0 \\ \vdots \\ 0 \\ 1
+						\end{pmatrix} \right) \\
+						&\overset{f\text{ linear}}{=} x_1 \cdot f\left( \begin{pmatrix}
+							1 \\ 0 \\ \vdots \\ 0
+						\end{pmatrix} \right)\circleplus \dots \circleplus x_n \circlecdot f\left( \begin{pmatrix}
+							0 \\ \vdots \\ 0  \\ 1
+						\end{pmatrix} \right) \\
+						&= x_1 \circlecdot \begin{pmatrix}
+							a_{11} \\ \vdots \\ a_{m1}
+						\end{pmatrix} \circleplus \dots \circleplus x_n \circlecdot \begin{pmatrix}
+							a_{1n} \\ \vdots \\ a_{mn}
+						\end{pmatrix}
+					\end{align}
+					
+			\subsubsection{Definition 8.13}
+				Wir definieren für ${\color{gray} (a_{ij}) =\ } A \in K^{m \times n}$ und ${\color{gray} \begin{pmatrix}
+						x_1 \\ \vdots \\ x_n
+					\end{pmatrix} =\ } x \in K^n$
+				
+					\begin{align}
+						A \cdot x &= \begin{bmatrix}
+							a_{11}	& \cdots	& a_{1n} \\
+							\vdots	& \ddots	& \vdots \\
+							a_{m1}	& \cdots	& a_{mn}
+						\end{bmatrix} \cdot \begin{bmatrix}
+							x_1 \\ \vdots \\ x_n
+						\end{bmatrix} = \begin{bmatrix}
+							a_{11} \cdot x_1 + \cdots + a_{1n} \cdot x_n \\
+							\vdots \\
+							a_{m1} \cdot x_1 + \cdots + a_{mn} \cdot x_n
+						\end{bmatrix}
+					\end{align}
+			
+			\subsubsection{Satz 8.14}
+				\begin{enumerate}[a)]
+					\item Sei $B \in K^{m \times n}$. Dann ist die Abbildung $g: K^n \to K^m, g(x) := B \cdot x$ linear.
+					\item Sei $f: K^n \to K^m$ linear. Dann gibt es eine Matrix $A \in K^{m \times n}$ so dass $f(x) = A \cdot x$ für alle $x \in K^n$.
+				\end{enumerate}
 		
 				
 					

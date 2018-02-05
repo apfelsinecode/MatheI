@@ -2081,7 +2081,7 @@
 				\end{align}
 			
 			\subsubsection{Definition 8.11}
-				Sei $(K, +, \cdot)$ ein Körper, $m, n \inN$. Eine \emph{$(m \times n)$-Matrix mit Einträgen aus $K$}\index{Matrix mit Einträgen aus K@$(m \times n)$-Matrix mit Einträgen aus $K$} ist ein rechteckiges Schema
+				Sei $(K, +, \cdot)$ ein Körper, $m, n \inN$. Eine \emph{$(m \times n)$-Matrix mit Einträgen aus $K$}\subkeywordNoprint{Matrix mit Einträgen aus K@$(m \times n)$-Matrix mit Einträgen aus $K$}{Matrizen} ist ein rechteckiges Schema
 				\begin{align}
 					\begin{bmatrix}
 						a_{11}	& \cdots	& a_{1n}\\
@@ -2095,6 +2095,16 @@
 				Die Menge aller $(m \times n)$-Matrizen mit Einträgen aus $K$ bezeichnen wir mit $K^(m \times n)$.
 				
 				\paragraph{Bemerkung} Wir identifizieren $K^n \entspricht K^{n \times 1}$
+				
+			\subsubsection{Definition 8.12}
+				Seien $U, V$ zwei $K$-VR, $B = \{b_1, \dots, b_n\} \subseteq U$ Basis von $U$, $P = \{p_1, \dots, p_m\} \subseteq V$ Basis von V. Sei $f: U \to V$ linear. Für $j = 1, \dots, n$
+				\begin{align}
+					&f(b_j) = (a_{1j} \circlecdot p_1) \circleplus \dots \circleplus (a_{mj} \circlecdot p_m)\\
+					&\text{ mit } a_{ij} \in K \text{ für alle } i \in \{1, \dots, m\}, j \in \{1, \dots, n\}
+				\end{align}
+				Dann heißt $(a_{ij})_{\scriptsize\begin{array}{l} 1 \leq i \leq m \\ 1 \leq j \leq n \end{array}}$ die \subkeyword{Darstellungsmatrix}{Matrizen} von $f$ bezüglich der Basen $B$ und $P$.
+				
+				\paragraph{Bemerkung} ``In der Darstellungsmatrix stehen in den Spalten die Basen der Basisvektoren.''
 		
 				
 					

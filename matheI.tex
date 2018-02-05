@@ -1199,8 +1199,8 @@
 					\end{align}
 					Falls
 					\begin{align}
-						&p_1 \geq p_2 \geq p_3 \geq \dots \geq p_r \text{ und}\\
-						&q_1 \geq q_2 \geq q_3 \geq \dots \geq q_s
+						&p_1 \leq p_2 \leq p_3 \leq \dots \leq p_r \text{ und}\\
+						&q_1 \leq q_2 \leq q_3 \leq \dots \leq q_s
 					\end{align}
 					dann
 					\begin{align}
@@ -2105,6 +2105,31 @@
 				Dann heißt $(a_{ij})_{\scriptsize\begin{array}{l} 1 \leq i \leq m \\ 1 \leq j \leq n \end{array}}$ die \subkeyword{Darstellungsmatrix}{Matrizen} von $f$ bezüglich der Basen $B$ und $P$.
 				
 				\paragraph{Bemerkung} ``In der Darstellungsmatrix stehen in den Spalten die Basen der Basisvektoren.''
+				
+				\paragraph{Beispiele}
+					Sei $f: \mathbb{R}^2 \to \mathbb{R}^3, f\left(\begin{pmatrix}
+						x \\ y
+					\end{pmatrix}\right) = \begin{pmatrix}
+					x+y \\ -y \\ x-y
+					\end{pmatrix}$
+					\begin{itemize}
+						\item Betrachte Standardbasen $B = \left\{ \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \end{pmatrix} \right\} \subset \mathbb{R}^2,\\
+						P = \left\{ \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} \right\} \subset \mathbb{R}^3$\\
+						Dann
+						\begin{align}
+							f\left( \begin{pmatrix}
+								0 \\ 1
+							\end{pmatrix}  \right) &= \begin{pmatrix}
+								1 \\ 0 \\ 1
+							\end{pmatrix} = 1 \circlecdot \begin{pmatrix}
+								1 \\ 0 \\ 0
+							\end{pmatrix} \circleplus 0 \circlecdot \begin{pmatrix}
+								0 \\ 1 \\ 0
+							\end{pmatrix} \circleplus 1 \circlecdot \begin{pmatrix}
+								0 \\ 0 \\ 1
+							\end{pmatrix}
+						\end{align}
+					\end{itemize}
 		
 				
 					

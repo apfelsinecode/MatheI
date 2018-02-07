@@ -2258,6 +2258,30 @@
 					\item Sei $B \in K^{m \times n}$. Dann ist die Abbildung $g: K^n \to K^m, g(x) := B \cdot x$ linear.
 					\item Sei $f: K^n \to K^m$ linear. Dann gibt es eine Matrix $A \in K^{m \times n}$ so dass $f(x) = A \cdot x$ für alle $x \in K^n$.
 				\end{enumerate}
+			
+			\subsubsection{Definition 8.15}
+				\begin{enumerate}[a)]
+					\item Für $A \in K^{m \times n}, B \in K^{l \times m}$ definieren wir $BA \in K^{k \times n}$ als
+					\begin{align}
+						(B\cdot A)_{rs} &= \sum_{i = 1}^{m} b_{ri} \cdot a_{is}, r \in \{1,\dots,l\}, s \in \{1,\dots, n \}
+					\end{align}
+					\begin{center}
+						\textit{``Zeile mal Spalte''}
+					\end{center}
+					\item Für $A, A' \in K^{m\times n}$ definieren wir $A + A' \in K^{m\times n}$ als
+					\begin{align}
+						(A+A')_{ij} &= a_{ij} + a'_{ij}
+					\end{align}
+				\end{enumerate}
+			
+				\paragraph{Bemerkung}~\\
+					\begin{tabular}{llll}
+						Falls & $A$ & Darstellungsmatrix zu & $f: K^n \to K^m$ \\
+							& $A'$ & Darstellungsmatrix zu & $f': K^n \to K^m$ \\
+							& $B$ & Darstellungsmatrix zu & $g: K^m \to K'$ \vspace{0.5em}\\
+						dann & $(A+A')$ & Darstellungsmatrix zu & $f+f': K^n \to K^m$ \\ 
+							& $B\times A$ & Darstellungsmatrix zu & $g\circ f: K^n \to K'$
+					\end{tabular} %TODO Verfifizieren, ob das so richtig ist
 		
 				
 					
